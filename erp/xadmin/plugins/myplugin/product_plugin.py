@@ -156,7 +156,8 @@ class UpdateProductPlugin(BaseAdminPlugin):
 
     def get_read_only_fields(self, readonly_fields, *args, **kwargs):
         if self.user.groups.filter(name=config['manage']):
-            readonly_fields = ()
+            readonly_fields = ('pf_name', 'pro_name', 'pro_num', 'hpro_name', 'hpro_num', 'created',
+                    'assembly_line', 'actual_num', 'is_instor', 'note', 'is_finish', 'qualified_rate')
             return readonly_fields
         pf = ProduceForm.objects.get(id=self.product_id)
         readonly_fields = ('pf_name', 'pro_name', 'pro_num', 'hpro_name', 'hpro_num', 'created',
@@ -312,7 +313,7 @@ class UpdateWasteFormPlugin(BaseAdminPlugin):
         if wf.pf_name.is_finish:
             readonly_fields = ('name', 'num', 'pf_name')
         if self.user.groups.filter(name=config['manage']):
-            readonly_fields = ()
+            readonly_fields = ('name', 'num', 'pf_name')
             return readonly_fields
         return readonly_fields
 

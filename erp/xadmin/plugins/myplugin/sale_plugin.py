@@ -54,7 +54,8 @@ class UpdateSaleFormPlugin(BaseAdminPlugin):
 
     def formfield_for_dbfield(self, data, *args, **kwargs):
         if isinstance(data, ModelChoiceField):
-            queryset = data._get_queryset()
+            queryset = data._get_queryset('sf_name', 'staff_name', 'c_name', 'price', 'created', 'deliver_date',
+                     'state', 'check', 'out_stor_date')
             if isinstance(queryset[0], User):
                 group = Group.objects.get(name=config['sale'])
                 queryset = group.user_set.all()
@@ -180,7 +181,7 @@ class UpdateSaleFormProductPlugin(BaseAdminPlugin):
         if sf.sf_name.check:
             readonly_fields = ('sf_name', 'pro_name', 'num')
         if self.user.groups.all()[0].name == config['manage']:
-            readonly_fields = ()
+            readonly_fields = ('sf_name', 'pro_name', 'num')
             return readonly_fields
         return readonly_fields
 

@@ -55,7 +55,7 @@ class UpdateOutStorForm(BaseAdminPlugin):
 
     def get_read_only_fields(self, readonly_fields, *args, **kwargs):
         if self.user.groups.filter(name=config['manage']):
-            readonly_fields = ()
+            readonly_fields = ('osf_name', 'created', 'staff_id', 'check', 'note', 'finished')
             return readonly_fields
         os_form = OutStorForm.objects.get(id=self.of_id)
         if os_form.check:
@@ -144,7 +144,7 @@ class UpdateOutStorDetailForm(BaseAdminPlugin):
 
     def get_read_only_fields(self, readonly_fields, *args, **kwargs):
         if self.user.groups.filter(name=config['manage']):
-            readonly_fields = ()
+            readonly_fields = ('good_name', 'num', 'osf_name')
             return readonly_fields
         osf_good = OutStorDetail.objects.get(id=self.good_id)
         if osf_good.osf_name.check:

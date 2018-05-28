@@ -27,7 +27,8 @@ class CreateOrderFormPlugin(BaseAdminPlugin):
 
     def get_read_only_fields(self, readonly_fields, *args, **kwargs):
         if self.user.groups.filter(name=config['manage']):
-            readonly_fields = ()
+            readonly_fields = ('of_name', 'ven_name', 'created', 'delivery', 'typ', 'receipt_status', 'payment_status',
+                    'total_price', 'executor', 'storage_time', 'is_finish')
             return readonly_fields
         readonly_fields = ['delivery', 'receipt_status', 'payment_status', 'total_price', 'storage_time', 'is_finish']
         return readonly_fields
@@ -43,12 +44,13 @@ class UpdateOrderFormGoodsPlugin(BaseAdminPlugin):
 
     def get_read_only_fields(self, readonly_fields, *args, **kwargs):
         if self.user.groups.filter(name=config['manage']):
-            readonly_fields = ()
-            return readonly_fields
-        of_good = OrderFormGoods.objects.get(id=self.of_good_id)
-        if of_good.of_name.is_finish:
             readonly_fields = ('rm_name', 'num', 'of_name')
-        return readonly_fields
+            return readonly_fields
+        ofg_form = OrderFormGoods.objects.get(id=self.of_good_id)
+        of_form = ofg_form.of_name
+        if of_form.receipt_status or of_form.is_finish:
+            readonly_fields = ('rm_name', 'num', 'of_name')
+            return readonly_fields
 
 
 class OrderFormGoodsPlugin(BaseAdminPlugin):
@@ -82,22 +84,6 @@ class OrderFormGoodsPlugin(BaseAdminPlugin):
         return new_data
 
 
-class UpdateOrderFormGoodsPlugin(BaseAdminPlugin):
-    order_form_goods = False
-    of_good_id = None
-
-    def init_request(self, *args, **kwargs):
-        self.of_good_id = args[0]
-        return bool(self.order_form_goods)
-
-    def get_read_only_fields(self, readonly_fields, *args, **kwargs):
-        ofg_form = OrderFormGoods.objects.get(id = self.of_good_id)
-        of_form = ofg_form.of_name
-        if of_form.receipt_status or of_form.is_finish:
-            readonly_fields = ('rm_name', 'num', 'of_name')
-            return readonly_fields
-
-
 class OrderFormPlugin(BaseAdminPlugin):
     order_form = False
     of_good_id = None
@@ -129,7 +115,8 @@ class UpdateOrderFormByPurchase(BaseAdminPlugin):
 
     def get_read_only_fields(self, readonly_fields, *args, **kwargs):
         if self.user.groups.filter(name=config['manage']):
-            readonly_fields = ()
+            readonly_fields = ('of_name', 'ven_name', 'created', 'delivery', 'typ', 'receipt_status', 'payment_status',
+                    'total_price', 'executor', 'storage_time', 'is_finish')
             return readonly_fields
         if OrderForm.objects.get(id=self.of_id).is_finish:
             readonly_fields = ['of_name', 'ven_name', 'created', 'delivery', 'typ', 'receipt_status',
@@ -228,7 +215,8 @@ class UpdateOrderFormByStor(BaseAdminPlugin):
 
     def get_read_only_fields(self, readonly_fields, *args, **kwargs):
         if self.user.groups.filter(name=config['manage']):
-            readonly_fields = ()
+            readonly_fields = ('of_name', 'ven_name', 'created', 'delivery', 'typ', 'receipt_status', 'payment_status',
+                    'total_price', 'executor', 'storage_time', 'is_finish')
             return readonly_fields
         if OrderForm.objects.get(id=self.of_id).receipt_status:
             readonly_fields = ['of_name', 'ven_name', 'created', 'delivery', 'typ', 'receipt_status',
@@ -250,23 +238,9 @@ class ViewOrderFormDetail(BaseAdminPlugin):
         return bool(self.view_order_form_detail)
 
 
-class test(BaseAdminPlugin):
-    view_order_form_detail = True
-
-    def init_request(self, *args, **kwargs):
-        return bool(self.view_order_form_detail)
-
-    def get_readonly_fields(self, readonly_fields):
-        if OrderForm.objects.get(id=self.of_id).is_finish:
-            readonly_fields = ['of_name', 'ven_name', 'created', 's_name', 'delivery', 'typ', 'receipt_status',
-                               'payment_status', 'total_price', 'executor', 'storage_time', 'is_finish']
-        return readonly_fields
-
-
 xadmin.site.register_plugin(CreateOrderFormPlugin, CreateAdminView)
 xadmin.site.register_plugin(UpdateOrderFormByStor, UpdateAdminView)
 xadmin.site.register_plugin(UpdateOrderFormByPurchase, UpdateAdminView)
-xadmin.site.register_plugin(UpdateOrderFormGoodsPlugin, UpdateAdminView)
 xadmin.site.register_plugin(OrderFormGoodsPlugin, ModelFormAdminView)
 xadmin.site.register_plugin(OrderFormPlugin, ModelFormAdminView)
 xadmin.site.register_plugin(UpdateOrderFormGoodsPlugin, UpdateAdminView)
