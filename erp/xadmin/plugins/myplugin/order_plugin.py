@@ -82,6 +82,22 @@ class OrderFormGoodsPlugin(BaseAdminPlugin):
         return new_data
 
 
+class UpdateOrderFormGoodsPlugin(BaseAdminPlugin):
+    order_form_goods = False
+    of_good_id = None
+
+    def init_request(self, *args, **kwargs):
+        self.of_good_id = args[0]
+        return bool(self.order_form_goods)
+
+    def get_read_only_fields(self, readonly_fields, *args, **kwargs):
+        ofg_form = OrderFormGoods.objects.get(id = self.of_good_id)
+        of_form = ofg_form.of_name
+        if of_form.receipt_status or of_form.is_finish:
+            readonly_fields = ('rm_name', 'num', 'of_name')
+            return readonly_fields
+
+
 class OrderFormPlugin(BaseAdminPlugin):
     order_form = False
     of_good_id = None
@@ -253,3 +269,4 @@ xadmin.site.register_plugin(UpdateOrderFormByPurchase, UpdateAdminView)
 xadmin.site.register_plugin(UpdateOrderFormGoodsPlugin, UpdateAdminView)
 xadmin.site.register_plugin(OrderFormGoodsPlugin, ModelFormAdminView)
 xadmin.site.register_plugin(OrderFormPlugin, ModelFormAdminView)
+xadmin.site.register_plugin(UpdateOrderFormGoodsPlugin, UpdateAdminView)
