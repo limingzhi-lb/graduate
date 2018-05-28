@@ -239,7 +239,7 @@ class UpdateProductPlugin(BaseAdminPlugin):
             if 'hpro_name' in new_data['data'].keys():
                 if not new_data['data']['hpro_name']:
                     new_data['data']['hpro_num'] = ''
-                elif 'hpro_num' not in new_data['data'].keys():
+                if 'hpro_num' not in new_data['data'].keys():
                     new_data['data']['hpro_num'] = '0'
                 elif not new_data['data']['hpro_num']:
                     new_data['data']['hpro_num'] = '0'
