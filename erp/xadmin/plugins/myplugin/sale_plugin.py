@@ -105,12 +105,12 @@ class UpdateSaleFormPlugin(BaseAdminPlugin):
                     elif not new_data['data']['out_stor_date_0']:
                         new_data['data']['out_stor_date_0'] = today
                         new_data['data']['out_stor_date_1'] = now
-                send = SendMsg(config['produce'], '有订单出库需要确认，请尽快操作')
+                send = SendMsg(config['sale'], '有订单出库需要确认，请尽快操作')
                 send.send()
             if 'out_stor_date_0' in new_data['data'].keys():
                 if new_data['data']['out_stor_date_0']:
                     new_data['data']['state'] = 'on'
-                send = SendMsg(config['produce'], '有订单出库需要确认，请尽快操作')
+                send = SendMsg(config['sale'], '有订单出库需要确认，请尽快操作')
                 send.send()
         return new_data
 
