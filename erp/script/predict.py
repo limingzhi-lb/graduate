@@ -66,9 +66,17 @@ class linear(object):
         cursor = db.cursor()
         cursor.execute("TRUNCATE PredictData")
         db.close()
+        time_full = []
+        for i in range(1, 8):
+            time_full.append(int((datetime.timedelta(days=i) + datetime.date.today()).strftime("%Y%m%d")))
         for i in range(len(x)):
-            time = datetime.timedelta(days=i) + datetime.date.today()
-            time = datetime.datetime.strptime(time, '%Y-%m-%d')
+            day = x[i][0]
+            for t in time_full:
+                if day == t[-2:]:
+                    time = t
+                    break
+            # time = datetime.date.today().strftime("%Y-%m-{}".format(date))
+            time=datetime.datetime.strptime(time,'%Y-%m-%d')
             s = PredictData()
             s.date = time
             pro = Product.objects.get(id=x[i][1])
