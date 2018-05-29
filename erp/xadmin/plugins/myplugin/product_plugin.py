@@ -264,8 +264,8 @@ class UpdateProductPlugin(BaseAdminPlugin):
             if 'actual_num' in new_data['data'].keys():
                 rate = new_data['data'].get('qualified_rate')
                 if rate:
-                    if int(rate) > 100:
-                        new_data['data']['qualified_rate'] = '100'
+                    if float(rate) > 100:
+                        new_data['data']['qualified_rate'] = '100.0'
             if new_data['data'].get('is_finish'):
                 pro_name = pf.pro_name
                 pro_num = pf.pro_num

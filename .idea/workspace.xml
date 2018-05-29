@@ -39,8 +39,8 @@
           <file leaf-file-name="product_plugin.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/erp/xadmin/plugins/myplugin/product_plugin.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="214">
-                  <caret line="186" column="38" lean-forward="true" selection-start-line="186" selection-start-column="38" selection-end-line="186" selection-end-column="38" />
+                <state relative-caret-position="432">
+                  <caret line="265" column="24" lean-forward="true" selection-start-line="265" selection-start-column="24" selection-end-line="265" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#95#0" expanded="true" />
                   </folding>
@@ -635,8 +635,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/erp/xadmin/plugins/myplugin/product_plugin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="186" column="38" lean-forward="true" selection-start-line="186" selection-start-column="38" selection-end-line="186" selection-end-column="38" />
+        <state relative-caret-position="432">
+          <caret line="265" column="24" lean-forward="true" selection-start-line="265" selection-start-column="24" selection-end-line="265" selection-end-column="24" />
           <folding>
             <element signature="e#0#95#0" expanded="true" />
           </folding>
