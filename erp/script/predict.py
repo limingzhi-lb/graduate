@@ -72,7 +72,7 @@ class linear(object):
         for i in range(len(x)):
             day = x[i][0]
             for t in time_full:
-                if str(day) == t[-2:]:
+                if int(day) == int(t[-2:]):
                     time = t
                     break
             # time = datetime.date.today().strftime("%Y-%m-{}".format(date))
