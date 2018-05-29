@@ -68,7 +68,7 @@ class linear(object):
         db.close()
         time_full = []
         for i in range(1, 8):
-            time_full.append((datetime.timedelta(days=i) + datetime.date.today()).strftime("%Y%m%d"))
+            time_full.append((datetime.timedelta(days=i) + datetime.date.today()).strftime("%Y-%m-%d"))
         for i in range(len(x)):
             day = x[i][0]
             for t in time_full:
