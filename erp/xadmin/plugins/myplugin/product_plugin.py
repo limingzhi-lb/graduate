@@ -183,7 +183,7 @@ class UpdateProductPlugin(BaseAdminPlugin):
                 return readonly_fields
         elif pf.assembly_line.leader.id == self.user.id:
             if self.user.is_leader:
-                readonly_fields = ('created', 'is_instor', 'qualified_rate')
+                readonly_fields = ('created', 'is_instor')
                 return readonly_fields
             else:
                 readonly_fields = ('pf_name', 'pro_name', 'pro_num', 'hpro_name', 'hpro_num', 'created',
