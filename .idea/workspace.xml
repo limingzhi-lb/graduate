@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="217236f9-807d-47e5-b5e0-e2ec634c1acc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/erp/InfoManage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/erp/InfoManage/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/erp/xadmin/templates/xadmin/base_site.html" beforeDir="false" afterPath="$PROJECT_DIR$/erp/xadmin/templates/xadmin/base_site.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/script/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/erp/script/predict.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +16,8 @@
       <file leaf-file-name="predict.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/erp/script/predict.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1980">
-              <caret line="132" column="26" selection-start-line="132" selection-start-column="26" selection-end-line="132" selection-end-column="26" />
+            <state relative-caret-position="244">
+              <caret line="54" column="22" lean-forward="true" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
               <folding>
                 <element signature="e#17#35#0" expanded="true" />
               </folding>
@@ -683,8 +682,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/erp/script/predict.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="132" column="26" selection-start-line="132" selection-start-column="26" selection-end-line="132" selection-end-column="26" />
+        <state relative-caret-position="244">
+          <caret line="54" column="22" lean-forward="true" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
           <folding>
             <element signature="e#17#35#0" expanded="true" />
           </folding>
