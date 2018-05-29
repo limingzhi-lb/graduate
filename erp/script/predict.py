@@ -76,7 +76,7 @@ class linear(object):
                     time = t
                     break
             # time = datetime.date.today().strftime("%Y-%m-{}".format(date))
-            time=datetime.datetime.strptime(time,'%Y-%m-%d')
+            # time=datetime.datetime.strptime(time,'%Y-%m-%d')
             s = PredictData()
             s.date = time
             pro = Product.objects.get(id=x[i][1])
