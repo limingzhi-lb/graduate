@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="217236f9-807d-47e5-b5e0-e2ec634c1acc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/erp/xadmin/plugins/myplugin/product_plugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/erp/xadmin/plugins/myplugin/product_plugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/xadmin/plugins/myplugin/sale_plugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/erp/xadmin/plugins/myplugin/sale_plugin.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,11 +36,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="product_plugin.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="product_plugin.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/erp/xadmin/plugins/myplugin/product_plugin.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="265" column="24" lean-forward="true" selection-start-line="265" selection-start-column="24" selection-end-line="265" selection-end-column="24" />
+                <state relative-caret-position="358">
+                  <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
                   <folding>
                     <element signature="e#0#95#0" expanded="true" />
                   </folding>
@@ -48,11 +48,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="sale_plugin.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="sale_plugin.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/erp/xadmin/plugins/myplugin/sale_plugin.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2610">
-                  <caret line="183" column="59" selection-start-line="183" selection-start-column="59" selection-end-line="183" selection-end-column="59" />
+                <state relative-caret-position="412">
+                  <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
                 </state>
               </provider>
             </entry>
@@ -64,8 +64,8 @@
           <file leaf-file-name="adminx.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/erp/InfoManage/adminx.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="286">
-                  <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
+                <state relative-caret-position="301">
+                  <caret line="170" lean-forward="true" selection-start-line="170" selection-end-line="170" />
                 </state>
               </provider>
             </entry>
@@ -174,10 +174,10 @@
         <option value="$PROJECT_DIR$/erp/InfoManage/models.py" />
         <option value="$PROJECT_DIR$/erp/xadmin/templates/xadmin/base_site.html" />
         <option value="$PROJECT_DIR$/erp/xadmin/plugins/myplugin/order_plugin.py" />
-        <option value="$PROJECT_DIR$/erp/xadmin/plugins/myplugin/sale_plugin.py" />
         <option value="$PROJECT_DIR$/erp/xadmin/plugins/myplugin/stor_plugin.py" />
         <option value="$PROJECT_DIR$/erp/InfoManage/adminx.py" />
         <option value="$PROJECT_DIR$/erp/xadmin/plugins/myplugin/product_plugin.py" />
+        <option value="$PROJECT_DIR$/erp/xadmin/plugins/myplugin/sale_plugin.py" />
       </list>
     </option>
   </component>
@@ -377,7 +377,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -592,13 +592,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/erp/xadmin/plugins/myplugin/sale_plugin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2610">
-          <caret line="183" column="59" selection-start-line="183" selection-start-column="59" selection-end-line="183" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/erp/xadmin/plugins/myplugin/stor_plugin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
@@ -628,18 +621,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/erp/InfoManage/adminx.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
+        <state relative-caret-position="301">
+          <caret line="170" lean-forward="true" selection-start-line="170" selection-end-line="170" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/erp/xadmin/plugins/myplugin/product_plugin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="265" column="24" lean-forward="true" selection-start-line="265" selection-start-column="24" selection-end-line="265" selection-end-column="24" />
+        <state relative-caret-position="358">
+          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
           <folding>
             <element signature="e#0#95#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erp/xadmin/plugins/myplugin/sale_plugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
         </state>
       </provider>
     </entry>

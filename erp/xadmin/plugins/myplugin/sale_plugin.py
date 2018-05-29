@@ -54,8 +54,7 @@ class UpdateSaleFormPlugin(BaseAdminPlugin):
 
     def formfield_for_dbfield(self, data, *args, **kwargs):
         if isinstance(data, ModelChoiceField):
-            queryset = data._get_queryset('sf_name', 'staff_name', 'c_name', 'price', 'created', 'deliver_date',
-                     'state', 'check', 'out_stor_date')
+            queryset = data._get_queryset()
             if isinstance(queryset[0], User):
                 group = Group.objects.get(name=config['sale'])
                 queryset = group.user_set.all()
