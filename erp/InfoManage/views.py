@@ -16,6 +16,5 @@ class index(APIView):
     # 这里是一个get请求
     def get(self, request, *args, **kwargs):
         data = main()
-        print(data)
         # return Response('Day,产品1,产品2\n05/22/2018,4,4\n05/23/2018,4,5\n05/24/2018,2,2\n')
         return Response(data)
