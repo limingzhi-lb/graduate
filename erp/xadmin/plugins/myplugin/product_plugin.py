@@ -179,16 +179,15 @@ class UpdateProductPlugin(BaseAdminPlugin):
                 return readonly_fields
             if self.user.is_leader and self.user.groups.all()[0].name == config['produce']:
                 readonly_fields = ('pf_name', 'pro_name', 'pro_num', 'hpro_name', 'hpro_num', 'created',
-                               'assembly_line', 'actual_num', 'is_instor', 'note', 'qualified_rate')
+                               'assembly_line', 'actual_num', 'is_instor', 'note')
                 return readonly_fields
         elif pf.assembly_line.leader.id == self.user.id:
-            print('*******')
             if self.user.is_leader:
                 readonly_fields = ('created', 'is_instor', 'qualified_rate')
                 return readonly_fields
             else:
                 readonly_fields = ('pf_name', 'pro_name', 'pro_num', 'hpro_name', 'hpro_num', 'created',
-                                   'assembly_line', 'is_instor', 'is_finish', 'qualified_rate')
+                                   'assembly_line', 'is_instor', 'is_finish')
                 return readonly_fields
         elif self.user.groups.all()[0].name == config['stor']:
             if pf.actual_num:
@@ -262,6 +261,11 @@ class UpdateProductPlugin(BaseAdminPlugin):
                                         send = SendMsg(config['purchase'], '有原材料需要补货，请尽快操作')
                                         send.send()
                 new_data['data']['hpro_num'] = str(less)
+            if 'actual_num' in new_data['data'].keys():
+                rate = new_data['data'].get('qualified_rate')
+                if rate:
+                    if int(rate) > 100:
+                        new_data['data']['qualified_rate'] = '100'
             if new_data['data'].get('is_finish'):
                 pro_name = pf.pro_name
                 pro_num = pf.pro_num
@@ -288,6 +292,13 @@ class WasteFormPlugin(BaseAdminPlugin):
 
     def init_request(self, *args, **kwargs):
         return bool(self.waste_form)
+
+    # def get_form_datas(self, data):
+    #     new_data = deepcopy(data)
+    #     if 'data' in new_data.keys():
+    #         id = new_data['data'].get('pf_name')
+    #         num = new_data['data'].get('num')
+    #         num = P
 
     def formfield_for_dbfield(self, data, *args, **kwargs):
         if isinstance(data, ModelChoiceField):
