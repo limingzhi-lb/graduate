@@ -199,8 +199,6 @@ class UpdateProductPlugin(BaseAdminPlugin):
             return readonly_fields
         return readonly_fields
 
-    # TODO 创建生产目标之后，给仓库组发微信创建出库表，不强制要求，如未创建为仓库组内部失误，不应在生产目标中加强制要求
-    # TODO 生产目标完成不需要减去仓库中的货物数量，由出库表减去
     def get_form_datas(self, data):
         new_data = deepcopy(data)
         if 'data' in new_data.keys():

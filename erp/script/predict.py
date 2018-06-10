@@ -127,10 +127,6 @@ class linear(object):
         return res
 
 
-
-
-
-
 def main():
     l = linear()
     x,y = l.get_data()
