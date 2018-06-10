@@ -7,5 +7,5 @@ import itchat
 #     itchat.send_msg('Nice to meet you!', msg['RecommendInfo']['UserName'])
 
 
-#itchat.auto_login(enableCmdQR=2, hotReload=True)
+itchat.auto_login(enableCmdQR=2, hotReload=True)
 # itchat.auto_login()
