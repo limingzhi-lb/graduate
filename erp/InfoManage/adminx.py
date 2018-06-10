@@ -180,7 +180,7 @@ class SaleFormAdmin(object):
     list_per_page = 5
     data_charts = {
         "user_count": {'title': u"销售业绩", "x-field": "deliver_date", "y-field": ("price",),
-                       "order": ('price',)},
+                       "order": ('deliver_date',)},
     }
 
 

@@ -42,7 +42,7 @@ class ProductPlugin(BaseAdminPlugin):
         return bool(self.product)
 
     def get_read_only_fields(self, readonly_fields, *args, **kwargs):
-        readonly_fields = ('ass_name', 'price', 'created', 'updated')
+        readonly_fields = ('pro_name', 'price', 'created', 'updated')
         if self.user.groups.all()[0].name == config['produce'] and self.user.is_leader:
             readonly_fields = ()
         if self.user.groups.filter(name=config['manage']):
