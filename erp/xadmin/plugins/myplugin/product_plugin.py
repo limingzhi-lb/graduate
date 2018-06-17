@@ -291,13 +291,6 @@ class WasteFormPlugin(BaseAdminPlugin):
     def init_request(self, *args, **kwargs):
         return bool(self.waste_form)
 
-    # def get_form_datas(self, data):
-    #     new_data = deepcopy(data)
-    #     if 'data' in new_data.keys():
-    #         id = new_data['data'].get('pf_name')
-    #         num = new_data['data'].get('num')
-    #         num = P
-
     def formfield_for_dbfield(self, data, *args, **kwargs):
         if isinstance(data, ModelChoiceField):
             queryset = data._get_queryset()

@@ -35,8 +35,10 @@ class linear(object):
         x_data = []
         y_data = []
         for raw in raws:
-            x_data.append([raw[1], int(raw[0].strftime("%Y%m%d")[-2:])])
-            y_data.append(raw[2])
+            print(raw)
+            if raw[0]:
+                x_data.append([raw[1], int(raw[0].strftime("%Y%m%d")[-2:])])
+                y_data.append(raw[2])
         x_data = pandas.DataFrame(x_data)
         y_data = pandas.DataFrame(y_data)
         db.close()
@@ -54,7 +56,7 @@ class linear(object):
         pre = []
         for t in time:
             for raw in raws:
-                pre.append([t, raw[0]])
+                pre.append([raw[0], t])
         pre = pandas.DataFrame(pre)
         db.close()
         return pre
@@ -70,16 +72,14 @@ class linear(object):
         for i in range(1, 8):
             time_full.append((datetime.timedelta(days=i) + datetime.date.today()).strftime("%Y-%m-%d"))
         for i in range(len(x)):
-            day = x[i][0]
+            day = x[i][1]
             for t in time_full:
                 if int(day) == int(t[-2:]):
                     time = t
                     break
-            # time = datetime.date.today().strftime("%Y-%m-{}".format(date))
-            # time=datetime.datetime.strptime(time,'%Y-%m-%d')
             s = PredictData()
             s.date = time
-            pro = Product.objects.get(id=x[i][1])
+            pro = Product.objects.get(id=x[i][0])
             s.pro_name = pro
             s.num = str(int(y[i][0]))
             s.save()
@@ -107,12 +107,6 @@ class linear(object):
             time.append(data.date.strftime("%m/%d/%Y"))
         time = set(time)
         pre = []
-        # today = datetime.date.today()
-        # time = []
-        # for i in range(1, 8):
-        #     time.append((datetime.timedelta(days=i) + today).strftime("%m/%d/%Y"))
-        # print(time.sort())
-        # print(time)
         time = list(time)
         time.sort()
         for t in time:
